@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<title>JsPOS test</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+</head>
+<body>
+<div align="center"><h1>Vacuum distributed storage and processing NLP demo</h1></div>
+<textarea id="corpus" cols=100% rows=20%>
+</textarea>
+<div id="posTagging">Loading.<blink>..</blink></div>
+<script language="JavaScript" type="text/javascript" src="LAB.js"></script>
+<script type="text/javascript">
+	$LAB.setGlobalDefaults({/* AlwaysPreserveOrder:true, */CacheBust:true})
+		.script("../../z/utils/it.js")
+		.script("../../z/utils/enumerable.js")
+		.script("../../z/utils/z.js").wait(function(){
+			      //setup with some loader;
+			      var dloader=z.Utils.createElements({nodeName:'div',
+			                               parent:document.body,
+			                               attributes:{id:z.Utils.documentLoader,
+			                                           align:'center',
+			                                           style:'float:right;display:block;position:absolute;width:200px;overflow:visible;'+
+			                                                 'z-index:10000;color:#00BB00;font-size:150%;line-height:30%;'+
+			                                                 'background-color:transparent;',
+			                                           innerHTML:z.Utils.loader
+			                               }
+			      });
+			      var dloader_offset=z.Utils.getElementOffset(dloader);
+			      var vp=z.Utils.getWindowDimensions();
+			      z.Utils.applyStyle(dloader,'position:absolute;top:20px;left:'+(vp.width-dloader_offset.width)+'px;'+
+			                                 'top:'+25+'px;');
+			      var indicator=z.elem(z.Utils.indicator);
+			      if(it.typeOf(indicator)=='domObject'){
+					     indicator.innerHTML="loading..";
+			      }
+			      z.Utils.addEvents(dloader,['click','dblclick'],function dloader_clickHandler(e,f){
+			          arguments.callee.counter=(typeof arguments.callee.counter=='undefined')?1:++arguments.callee.counter;
+			          if(arguments.callee.counter>1){
+			             z.Effects.hide(dloader,5,'fade');
+			          }
+			      });
+			      setTimeout(function(){
+			          if(z.Utils.getStyleProperty(dloader,'display')=='block'){
+			          	 if(z.elem("posTagging") && /Loading/.test(z.elem("posTagging").innerHTML)){
+			      					return setTimeout(arguments.callee,50);
+			      			 }
+			             z.Effects.hide(dloader,5,'fade');
+			          }
+			      },5000);
+		})
+	  .script("WorkerConsole.js")
+		.script("lexer.js")
+		.script("POSTagger.js")
+		.script("lexicon.js")
+		.script("corpus.js")
+		.script("frequencyModel.js")
+		.script("POSTagger.init.js").wait(function(){
+						POSTagger.init({fn:"printKeywords",deep:true,srcArea:'corpus',output:"posTagging"})
+		});
+</script>
+</body>
+</html>
