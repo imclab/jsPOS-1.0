@@ -191,8 +191,8 @@
       output.innerHTML+="<br /><br />Tokenized and tagged " + result.words.length + " words in " + (end - args.start) + " milliseconds in vacuumProcess worker";
       z.Effect.bounce();
       output.innerHTML=output.innerHTML+("<br /><br />"+
-                                         "Possible syntactic positions:                  <br /><br />"+
-                                         "CC Coord Conjuncn                               <b>example: and,but,or</b><br />"+
+                                         "Possible syntactic positions:                   <br /><br />"+
+                                         "CC Coord Conjunction                            <b>example: and,but,or</b><br />"+
                                          "CD Cardinal number                              <b>example: one,two</b><br />"+
                                          "DT Determiner                                   <b>example: the,some</b><br />"+
                                          "TO verb prefix                                  <b>example: to</b><br />"+
