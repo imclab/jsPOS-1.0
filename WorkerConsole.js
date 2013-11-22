@@ -38,15 +38,6 @@
    //we need to use eval, so do not "use strict"
    //"use strict";
 
-   if(typeof require != 'undefined'){
-      require('./../../../../z/utils/z.js');
-   }
-
-   //do not load module without support!
-   if(z.noSupport()){
-      return exports;
-   }
-
    if(exports.Worker){
       var version = '3.9.13-05';
 
@@ -58,7 +49,7 @@
 
       // Replace Worker constructor with new augmented version
       exports.Worker = function Worker(url,onmessage,onerror){
-            var w = new _Worker(url);
+            var w = new (exports._Worker)(url);
             w.onmessage = function(e) {
                 if(e.data.log){
                    z.Log({description:'log message from worker '+e.data.log});

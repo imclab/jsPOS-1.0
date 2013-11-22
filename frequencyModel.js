@@ -37,12 +37,6 @@
 })("POSTagger_frequencyModel", function(exports){
    //we need to use eval, so do not "use strict"
    //"use strict";
-   if(typeof require != 'undefined'){
-      require('../../../z/utils/it.js');
-      require('../../../z/utils/enumerable.js');
-      require('../../../z/utils/z.js');
-      require('POSTagger.js');
-   }
 
    var version = "2.5.1";
    var that     = exports.POSTagger;
@@ -66,10 +60,10 @@
 	 //complex frequencyModel come into scene later;
 	 exports.POSTagger.frequencyModel=[
 	    function(a){ return POSTagger.topWord.call(this,a)?true:false },
-	    function(a){ return /$[A-Z]+/.test(a)?true:false }
-	    //0:isEntity -> (!isFirstWordInSentence(w) && camelCased(w) && entityExists -> (isInWikipedia(w) && ..))
+	    function isEntityORfirstWordInSentence(){ return ((!isFirstWordInSentence(w) && camelCased(w)) || entityExists(w)) }
 	 ];
 	 */
+
 	 //simple frequencyModel can also be defined as string:
 	 //exports.POSTagger.frequencyModel="a.frequency>b.frequency?-1:0";
 

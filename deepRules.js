@@ -52,12 +52,6 @@ z.slideShow//module
 })("POSTagger_deepRules", function(exports){
    //we need to use eval, so do not "use strict"
    //"use strict";
-   if(typeof require != 'undefined'){
-      require('../../../z/utils/it.js');
-      require('../../../z/utils/enumerable.js');
-      require('../../../z/utils/z.js');
-      require('POSTagger.js');
-   }
 
    var version = "2.5.1";
 

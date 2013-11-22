@@ -37,12 +37,6 @@
 })("POSTagger_init", function(exports){
    //we need to use eval, so do not "use strict"
    //"use strict";
-   if(typeof require != 'undefined'){
-      require('../../../z/utils/it.js');
-      require('../../../z/utils/enumerable.js');
-      require('../../../z/utils/z.js');
-      require('POSTagger.js');
-   }
 
    var version = "2.5.1";
 
@@ -54,10 +48,10 @@
          area.value=POSTagger.test.testString;
       }
       var keyw;
-      if(conf.fn=="printTags"){
+      if(conf.do=="printTags"){
          keyw=prompt("type syntactic position or word!","NN");
       }
-      if((conf.fn=="printTags" && keyw) || conf.fn!="printTags"){
+      if((conf.do=="printTags" && keyw) || conf.do!="printTags"){
           var start  = new Date().getTime();
           try{
                POSTagger.work(function POSTagger_worker_thread(deep){
@@ -67,7 +61,7 @@
                                       return self.postMessage({retVal:JSON.stringify({words: words, tags: tags})});
                                   });
                               },
-                              {onLoad:POSTagger[conf.fn],args:{keyw:keyw,deep:conf.deep,output:conf.output,start:start}}
+                              {onLoad:POSTagger[conf.do],args:{keyw:keyw,deep:conf.deep,output:conf.output,start:start}}
                );
           }
           catch(e){
@@ -75,7 +69,7 @@
                     new POSTagger(conf.deep,function POSTagger_main_thread(){
                         var words   = new Lexer().lex(POSTagger.test.testString);
                         var tags    = this.tag(words);
-                        return POSTagger[conf.fn]({words: words, tags: tags},{keyw:keyw,deep:conf.deep,output:conf.output,start:start});
+                        return POSTagger[conf.do]({words: words, tags: tags},{keyw:keyw,deep:conf.deep,output:conf.output,start:start});
                     });
                }
                catch(e){
@@ -88,7 +82,7 @@
           new POSTagger(conf.deep,function POSTagger_main_thread(){
               var words   = new Lexer().lex(POSTagger.test.testString);
               var tags    = this.tag(words);
-              return POSTagger[conf.fn]({words: words, tags: tags},{keyw:keyw,deep:conf.deep,output:conf.output,start:start});
+              return POSTagger[conf.do]({words: words, tags: tags},{keyw:keyw,deep:conf.deep,output:conf.output,start:start});
           });
           */
       }
