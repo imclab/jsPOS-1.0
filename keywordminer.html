@@ -57,7 +57,7 @@
 		.script("corpus.js")
 		.script("frequencyModel.js")
 		.script("POSTagger.init.js").wait(function(){
-						POSTagger.init({do:"printKeywords",deep:true,srcArea:'corpus',output:"posTagging"})
+						POSTagger.init({do:"printKeywords",deep:true,src:POSTagger.test.testString,srcArea:'corpus',output:"posTagging"})
 		});
 </script>
 </body>

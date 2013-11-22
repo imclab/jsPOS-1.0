@@ -41,8 +41,36 @@
    var version = "2.5.1";
 
    //public method of POSTagger;
-   //accepting no arguments;
    exports.POSTagger.init = function POSTagger_init(conf){
+      if(it.typeOf(conf.src)=='string' && zt.isUrl(conf.src)){
+         return z.Promise(
+           function(){
+               return zl({
+                    url    : zt.translateUrl(conf.src),
+                    cached : false,
+                    ctx    : this
+               });
+           }
+         )
+         .Ready(function(deferred,errOut,promises){
+           if(!errOut.length){
+              POSTagger.test.testString=deferred[0];
+           }
+           else if(errOut.length && it.isDef(conf.src)){
+              POSTagger.test.testString=it.def(conf.src);
+           }
+           else if(errOut.length && !it.isDef(conf.src)){
+              POSTagger.test.testString=conf.src;
+           }
+           this.execute(conf);
+         }.bind(this));
+      }
+      else{
+         POSTagger.test.testString=POSTagger.test.testString;
+         this.execute(conf);
+      }
+   };
+   exports.POSTagger.execute = function POSTagger_execute(conf){
       var area=z.elem(conf.srcArea);
       if(area){
          area.value=POSTagger.test.testString;
@@ -51,40 +79,36 @@
       if(conf.do=="printTags"){
          keyw=prompt("type syntactic position or word!","NN");
       }
-      if((conf.do=="printTags" && keyw) || conf.do!="printTags"){
-          var start  = new Date().getTime();
-          try{
-               POSTagger.work(function POSTagger_worker_thread(deep){
-                                  new POSTagger(deep,function POSTagger_worker_cBack(){
-                                      var words   = new Lexer().lex(POSTagger.test.testString);
-                                      var tags    = this.tag(words);
-                                      return self.postMessage({retVal:JSON.stringify({words: words, tags: tags})});
-                                  });
-                              },
-                              {onLoad:POSTagger[conf.do],args:{keyw:keyw,deep:conf.deep,output:conf.output,start:start}}
-               );
-          }
-          catch(e){
-               try{
-                    new POSTagger(conf.deep,function POSTagger_main_thread(){
-                        var words   = new Lexer().lex(POSTagger.test.testString);
-                        var tags    = this.tag(words);
-                        return POSTagger[conf.do]({words: words, tags: tags},{keyw:keyw,deep:conf.deep,output:conf.output,start:start});
-                    });
-               }
-               catch(e){
-                    if(z.devVersion){
-                       z.Log({description:'stacked during POSTagging, maybe webworker is not supported! @thread: '+z.trace()});
+      var start  = new Date().getTime();
+      try{
+           POSTagger.work(function POSTagger_worker_thread(deep){
+                              new POSTagger(deep,function POSTagger_worker_cBack(){
+                                  var words   = new Lexer().lex(POSTagger.test.testString);
+                                  var tags    = this.tag(words);
+                                  return self.postMessage({retVal:JSON.stringify({words: words, tags: tags})});
+                              });
+                          },
+                          {onLoad:POSTagger[conf.do],args:{keyw:keyw,deep:conf.deep,src:conf.src,output:conf.output,start:start}}
+           );
+      }
+      catch(e){
+           try{
+                new POSTagger(conf.deep,function POSTagger_main_thread(){
+                    var words   = new Lexer().lex(POSTagger.test.testString);
+                    var tags    = this.tag(words);
+                    if(it.typeOf(conf.do)=='function'){
+                       return POSTagger[conf.do]({words: words, tags: tags},{keyw:keyw,deep:conf.deep,src:conf.src,output:conf.output,start:start});
                     }
-               }
-          }
-          /*
-          new POSTagger(conf.deep,function POSTagger_main_thread(){
-              var words   = new Lexer().lex(POSTagger.test.testString);
-              var tags    = this.tag(words);
-              return POSTagger[conf.do]({words: words, tags: tags},{keyw:keyw,deep:conf.deep,output:conf.output,start:start});
-          });
-          */
+                    else{
+                       z.Log({log:'nothing to do with text '+POSTagger.test.testString});
+                    }
+                });
+           }
+           catch(e){
+                if(z.devVersion){
+                   z.Log({description:'stacked during POSTagging, maybe webworker is not supported! @thread: '+z.trace()});
+                }
+           }
       }
    };
    exports.POSTagger.work = function POSTagger_work(fn,args){
@@ -154,9 +178,9 @@
       if(result=='promises'){
          return setTimeout(arguments.callee.caller,100);
       }
-      else if(it.typeOf(result)!='object' || it.typeOf(args)!='object' || it.typeOf(args.keyw)=='undefined' || it.typeOf(args.start)=='undefined'){
+      else if(it.typeOf(result)!='object' || it.typeOf(args)!='object'){
          if(z.devVersion){
-            z.Log({description:'stacked during printing tags! @thread: '+z.trace()});
+            z.Log({description:'not enough argument passed to printTags! @thread: '+z.trace()});
          }
          return;
       }
@@ -168,6 +192,8 @@
       var thisFn=zu.getFunc(arguments.callee);
       self[thisFn.substring(0,thisFn.indexOf('_'))].result=result;
       var tag;
+      args.keyw  = args.keyw?args.keyw:'NN';
+      args.start = args.start?args.start:zu.timeStamp();
       if(args.keyw.toUpperCase() in result.tags.synSet){
          tag=result.tags.synSet[args.keyw.toUpperCase()];
       }
