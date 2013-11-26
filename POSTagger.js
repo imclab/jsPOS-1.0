@@ -44,7 +44,7 @@
         if(!(this instanceof arguments.callee)){
            return new arguments.callee([].slice.call(arguments,0));
         }
-        //space for static vars
+        //space for static vars, for reaching out stored results of external processes.
         var callee = arguments.callee;
         var that   = this;
         //initiate lexicon;
@@ -64,14 +64,15 @@
                    });
               }
            )
-           .Ready((function(fn,static){
-                      return function(){
-                        fn.apply(this,[static]);
-                      }
-           })(fn,callee).bind(this));
+           .Ready(function(fn,callee){
+                  fn.apply(this,[callee]);
+           }.bind(this,fn,callee));
+        }
+        else if(it.typeOf(POSTagger.prototype.deepRules)=='function' && it.typeOf(fn)=='function'){
+           return fn.apply(this,[callee]);
         }
         else{
-           fn.apply(this,[callee]);
+           return this;
         }
    };
    exports.POSTagger.prototype.wordInLexicon = function POSTagger_wordInLexicon(word){
@@ -405,43 +406,46 @@
         e=e.replace(/\?0/g,"?'0'");
         return eval(e);
    };
-   exports.POSTagger.prototype.wordFrequency = function POSTagger_wordFrequency(taggedCorpus,sortingModel){
-        if(it.isNotTypeOf(taggedCorpus,[Array,Object,String]).true()){
+   exports.POSTagger.prototype.wordFrequency = function POSTagger_wordFrequency(taggedCorpus,tag,sortingModel){
+        if(it.isNotTypeOf(taggedCorpus,[Array,Object,String]).OR().isNotTypeOf(tag,[Array,Object,String]).true()){
            return false;
         }
         this.taggedCorpus = enumerable(it.typeOf(taggedCorpus)=='string'?taggedCorpus.split(' '):taggedCorpus);
+        this.tag = enumerable(it.typeOf(tag)=='string'?tag.split(' '):tag);
         this.sortingModel = sortingModel;
-        return this.getFrequency(this);
+        return this.getFrequency();
    };
-   exports.POSTagger.prototype.getFrequency = function POSTagger_getFrequency(ctx){
-        var self=this;
-        this.taggedCorpus=this.taggedCorpus
+   exports.POSTagger.prototype.getFrequency = function POSTagger_getFrequency(){
+        var ctx=this;
+        this.tag=this.tag
         //map all words into sortableWords;
-        .eachOfEvery(function POSTagger_getFrequency_forEach(i,val,a){
-          if(it.typeOf(a.word)=='undefined'){
+        .eachOfEvery(function POSTagger_getFrequency_mapAllWordsIntoSortableWords(i,val,obj){
+          if(it.typeOf(obj.word)=='undefined'){
              return 'continue';
           }
           else if(it.typeOf(ctx.sortableWords)!='array'){
              ctx.sortableWords=[];
           }
-          ctx.sortableWords.push(a.word);
+          ctx.sortableWords.push(obj.word);
           return true;
         })
         //set up frequency of each word occurence;
-        .eachOfEvery(function POSTagger_getFrequency_mapEvery(i,val,a,_length,counter){
-          if(it.typeOf(a.word)=='undefined'){
+        .eachOfEvery(function POSTagger_getFrequency_setUpFrequencyInSortableWords(i,val,obj,_length,counter){
+          if(it.typeOf(obj.word)=='undefined'){
              return true;
           }
-          this['frequency']=ctx.sortableWords.join().split(a.word).length-1
+          obj.frequency=ctx.sortableWords.join().split(obj.word).length-1
           return true;
         })
+        //sort against POSTagger.frequencyModel, which can be any external sortingModel
         .sort({againstVal:true,func:this.sortingModel});
+        //need to return context to pack the internal results to some external variable;
         return this;
    };
    exports.POSTagger.prototype.get = function POSTagger_get(f,ctx){
-        this.taggedCorpus
-        .eachOfEvery(function POSTagger_get_forEach(i,val,a){
-            if(it.typeOf(a['word'])=='undefined' || i!='word'){
+        this.tag
+        .eachOfEvery(function POSTagger_get_forEach(i,val,obj){
+            if(it.typeOf(obj.word)=='undefined' || i!='word'){
                return 'continue';
             }
             return it.typeOf(f)=='function'?f.apply(ctx,[].slice.call(arguments,0)):function(){}();

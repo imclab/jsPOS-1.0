@@ -135,10 +135,7 @@
       return worker.postMessage({fn:fn.toString(),deep:args.args.deep});
    };
    exports.POSTagger.printKeywords = function POSTagger_printKeywords(result,args){
-      if(result.type=='promises'){
-         return setTimeout(arguments.callee.caller,100);
-      }
-      else if(it.typeOf(result)!='object' || it.typeOf(args)!='object' || it.typeOf(args.start)=='undefined'){
+      if(it.typeOf(result)!='object' || it.typeOf(args)!='object' || it.typeOf(args.start)=='undefined'){
          if(z.devVersion){
             z.Log({description:'stacked during keyword mining! @thread: '+z.trace()});
          }
@@ -148,37 +145,40 @@
       if(it.typeOf(output)!="domObject"){
          return z.Log({description:output+" is not an element in document to output.."});
       }
-      //store vars to the main POSTagger constructor static property space;
+      ////////////////////////////////////////////////////////////////////////
+      //store vars to the main POSTagger constructor static property space; //
+      ////////////////////////////////////////////////////////////////////////
+      //!important because JSON implementations ignore function properties, so class instances are chunked from methods, when passing between worker frames and main frames
       var thisFn=zu.getFunc(arguments.callee);
       self[thisFn.substring(0,thisFn.indexOf('_'))].result=result;
       if('NN' in result.tags.synSet){
+         //filtering result to keywords by wordFrequency method via simple enumerable sorting due to a modular frequencyModel(frequencyModel.js);
          var keywords = [];
-         new POSTagger(args.deep,function(static){
-             this.wordFrequency(static.result.tags.synSet['NN'],POSTagger.frequencyModel)
-                 .get(function printKeywords_get(i,val,a){
-                        if(POSTagger.POSTAGGER_LEXICON[val]=='DT'){
-                           return true;
-                        }
-                        //if(val=='privacy')alert(keywords);
-                        return keywords.push(val);
-                 });
-                 var ret=[];
-                 enumerable(keywords).unredundant().forEach(function(i,val,a){
-                     return ret.push(val);
-                 });
-                 ret.length=3;
-                 output.innerHTML="<br /><b>keywords</b>:<br /><br />"+ret.join()+"<br />";
-                 var end = new Date().getTime();
-                 output.innerHTML+="<br /><br />mining keywords in " + result.words.length + " words in " + (end - args.start) + " milliseconds in vacuumProcess worker";
+         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         //we don't need parental process args property args.deep to pass into PosTagger anymore, result has already been passed to static POSTagger constructor as a property //
+         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         new POSTagger()
+             .wordFrequency(result.tags,result.tags.synSet['NN'],POSTagger.frequencyModel)
+             .get(function printKeywords_get(i,val,a){
+                                    if(POSTagger.POSTAGGER_LEXICON[val]=='DT'){
+                                       return true;
+                                    }
+                                    //if(val=='privacy')z.log({log:'keyw: '+keywords});
+                                    return keywords.push(val);
+             });
+         var ret=[];
+         enumerable(keywords).unredundant().forEach(function(i,val,a){
+             return ret.push(val);
          });
+         ret.length=3;
+         output.innerHTML="<br /><b>keywords</b>:<br /><br />"+ret.join()+"<br />";
+         var end = new Date().getTime();
+         output.innerHTML+="<br /><br />mining keywords in " + result.words.length + " words in " + (end - args.start) + " milliseconds in vacuumProcess worker";
       }
       z.Effect.bounce();
    };
    exports.POSTagger.printTags = function POSTagger_printTags(result,args){
-      if(result=='promises'){
-         return setTimeout(arguments.callee.caller,100);
-      }
-      else if(it.typeOf(result)!='object' || it.typeOf(args)!='object'){
+      if(it.typeOf(result)!='object' || it.typeOf(args)!='object'){
          if(z.devVersion){
             z.Log({description:'not enough argument passed to printTags! @thread: '+z.trace()});
          }

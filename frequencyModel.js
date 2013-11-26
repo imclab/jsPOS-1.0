@@ -39,13 +39,29 @@
    //"use strict";
 
    var version = "2.5.1";
-   var that     = exports.POSTagger;
 
-   exports.POSTagger.topWord = function(wordObj){
+	 // exports.POSTagger.frequencyModel=[
+	 //    function isTopWord(a,b){
+	 //    	return POSTagger.frequencyModel.topWord(a)?1:0
+	 //    }
+	 //    ,function frequencyMeasurement(a,b){
+		//     return a.frequency>b.frequency?1:0 
+	 //    }
+	 //    //,function isEntityORfirstWordInSentence(a,b){ return ((!isFirstWordInSentence(w) && camelCased(w)) || entityExists(w)) }
+	 // ];
+
+   exports.POSTagger.frequencyModel=function frequencyMeasurement(a,b){
+         return a.frequency>b.frequency?1:0 
+   };
+
+	 //simple frequencyModel can also be defined as a string, but it is better to use functions:
+	 //exports.POSTagger.frequencyModel="a.frequency>b.frequency?1:0";
+
+   Object.defineProperty(exports.POSTagger.frequencyModel,"topWord",{value:function topWord(wordObj){
       var Flist = [];
 			new POSTagger()
 			//analyse the entire results to get topWords;
-	    .wordFrequency(this.result.tags.synSet,null)
+	    .wordFrequency(POSTagger.result.tags,POSTagger.result.tags.synSet,null/*we don't need another sortingModel*/)
 	    .get(function(i,val,a){
 	         if(POSTagger.POSTAGGER_LEXICON[val]=='DT'){
 	             return true;
@@ -54,24 +70,7 @@
 	    });
 	    Flist=enumerable(Flist).unredundant().obj;
 	    return (Flist.length=3 && (Flist.indexOf(wordObj.word)!=-1?true:false));
-   };
-
-	 /*
-	 //complex frequencyModel come into scene later;
-	 exports.POSTagger.frequencyModel=[
-	    function(a){ return POSTagger.topWord.call(this,a)?true:false },
-	    function isEntityORfirstWordInSentence(){ return ((!isFirstWordInSentence(w) && camelCased(w)) || entityExists(w)) }
-	 ];
-	 */
-
-	 //simple frequencyModel can also be defined as string:
-	 //exports.POSTagger.frequencyModel="a.frequency>b.frequency?-1:0";
-
-	 exports.POSTagger.frequencyModel=function(a,b){
-	 		//z.Log({description:JSON.stringify(a.word)+" : "+JSON.stringify(b.word)+" : "+a.frequency+" > "+b.frequency});
-	 		return a.frequency>b.frequency?1:0
-	 }
-   enumerable(POSTagger.frequencyModel).forEach(function(i,val){ return val.bind(that) });
+   },enumerable:true});
 
    Object.defineProperty(exports.POSTagger.frequencyModel,"version",{value:version,enumerable:false});
 
