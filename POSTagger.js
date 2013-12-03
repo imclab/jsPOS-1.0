@@ -426,16 +426,14 @@
           else if(it.typeOf(ctx.sortableWords)!='array'){
              ctx.sortableWords=[];
           }
-          ctx.sortableWords.push(obj.word);
-          return true;
+          return ctx.sortableWords.push(obj.word);
         })
         //set up frequency of each word occurence;
         .eachOfEvery(function POSTagger_getFrequency_setUpFrequencyInSortableWords(i,val,obj,_length,counter){
           if(it.typeOf(obj.word)=='undefined'){
              return true;
           }
-          obj.frequency=ctx.sortableWords.join().split(obj.word).length-1
-          return true;
+          return (obj.frequency=ctx.sortableWords.join().split(obj.word).length-1);
         })
         //sort against POSTagger.frequencyModel, which can be any external sortingModel
         .sort({againstVal:true,func:this.sortingModel});
