@@ -1,0 +1,160 @@
+,  eléb	PERS_PRON  	TAG: <POSTP<ELÉBE>>  	USAGE: archaic  
+,  elibe	POSTP	   	TAG: <POSTP<ELIBÉ>>  	USAGE: archaic  
+,  elejbe POSTP  	TAG: <POSTP<ELEJBE>>  	USAGE: archaic  
+,  fölibe	PERS_PRON 	TAG: <POSTP<FÖLIBE>> 	USAGE: archaic  
+,  közibé 	PERS_PRON  	TAG: <POSTP<KÖZIBE>>  	USAGE: archaic  
+,  közib	PERS_PRON  	TAG: <POSTP<KÖZIBE>>  	USAGE: archaic  
+,  körülött	 	PERS_PRON  	TAG: <POSTP<KÖRÜL>> 
+,  körött	 	PERS_PRON  	TAG: <POSTP<KÖRÖTT>> 
+,  alatt	DEM_PRON PERS_PRON POSTP 	# under X 	aff_i  	TAG: <POSTP<ALATT>> 
+,  alá	DEM_PRON PERS_PRON POSTP 	# (to) under X 	TAG: <POSTP<ALÁ>> 
+,  alól	DEM_PRON PERS_PRON POSTP 	# from under X 	OUT: aff_i   	TAG: <POSTP<ALÓL>> 
+,  felett	DEM_PRON PERS_PRON POSTP 	# above X, over X 	OUT: aff_i   	TAG: <POSTP<FELETT>> 
+,  fölött	DEM_PRON PERS_PRON POSTP 	# above X, over X 	OUT: aff_i   	TAG: <POSTP<FELETT>> 
+,  felé		DEM_PRON PERS_PRON POSTP 	# towards X 	TAG: <POSTP<FELÉ>> 
+,  fölé		DEM_PRON PERS_PRON POSTP 	# above X, over X 	TAG: <POSTP<FÖLÉ>> 
+,  felõl		DEM_PRON PERS_PRON POSTP 	# from (the direction of) X, as for X  	OUT: aff_i   	TAG: <POSTP<FELÕL>> 
+,  felül		DEM_PRON PERS_PRON POSTP 	# from (above/over) X 	OUT: aff_i   	TAG: <POSTP<FELÜL>> 
+,  fölül		DEM_PRON PERS_PRON POSTP 	# from (above/over) X 	OUT: aff_i   	TAG: <POSTP<FÖLÜL>> 
+,  elõtt		DEM_PRON PERS_PRON POSTP 	# before X, in front of X 	OUT: aff_i   	TAG: <POSTP<ELÕTT>>	 
+,  elé		DEM_PRON PERS_PRON POSTP 	# before X, in front of X 	TAG: <POSTP<ELÉ>>		 
+,  elõl		DEM_PRON PERS_PRON POSTP 	# from (in front of) X 	OUT: aff_i   	TAG: <POSTP<ELÕL>> 
+,  mögött	DEM_PRON PERS_PRON POSTP 	# behind X 	OUT: aff_i   	TAG: <POSTP<MÖGÖTT>>	 
+,  mögé		DEM_PRON PERS_PRON POSTP 	# (to) behind X 	TAG: <POSTP<MÖGÉ>>	 
+,  mögül		DEM_PRON PERS_PRON POSTP 	# from (behind) X 	OUT: aff_i   	TAG: <POSTP<MÖGÜL>>	 
+,  mellett	DEM_PRON PERS_PRON POSTP 	# beside X, by X, (somewhere) near X 	OUT: aff_i   	TAG: <POSTP<MELLETT>> 
+,  mellé	DEM_PRON PERS_PRON POSTP 	# to somewhere near X 	TAG: <POSTP<MELLÉ>> 
+,  mellõl	DEM_PRON PERS_PRON POSTP 	# from somewhere near X 	OUT: aff_i 	TAG: <POSTP<MELLÕL>>	 
+,  között	DEM_PRON PERS_PRON POSTP 	# between X, among X 	OUT: aff_i   	TAG: <POSTP<KÖZÖTT>> 
+,  közt		DEM_PRON PERS_PRON POSTP 	# between X, among X 	OUT: aff_i 	TAG: <POSTP<KÖZÖTT>> 
+,  közé	DEM_PRON PERS_PRON POSTP 	# to (between many, among many) X 	TAG: <POSTP<KÖZÉ>> 
+,  közül		DEM_PRON PERS_PRON POSTP 	# out of X, from among X 	OUT: aff_i 	TAG: <POSTP<KÖZÜL>> 
+,  köré	DEM_PRON PERS_PRON POSTP 	# (to) around X 	TAG: <POSTP<KÖRÉ>> 
+, körül	OUT: aff_i  TAG: <POSTP<KÖRÜL>> 	# around X 
+,  után	DEM_PRON PERS_PRON POSTP 	# after X 	OUT: aff_i 	TAG: <POSTP<UTÁN>> 
+,  helyett	DEM_PRON PERS_PRON POSTP 	# instead of X 	OUT: aff_i 	TAG: <POSTP<HELYETT>> 
+,  nélkül	DEM_PRON PERS_PRON POSTP 	# without X 	OUT: aff_i 	TAG: <POSTP<NÉLKÜL>> 
+,  miatt	DEM_PRON PERS_PRON POSTP 	# because of X 	OUT: aff_i 	TAG: <POSTP<MIATT>> 
+,  által	DEM_PRON PERS_PRON POSTP 	# by X, by way of X 	OUT: aff_i 	TAG: <POSTP<ÁLTAL>> 
+,  szerint	DEM_PRON PERS_PRON POSTP 	# according to X 	OUT: aff_i 	TAG: <POSTP<SZERINT>> 
+,  ellen	DEM_PRON PERS_PRON POSTP 	# against X 	OUT: aff_i 	TAG: <POSTP<ELLEN>> 
+,  iránt	DEM_PRON PERS_PRON POSTP 	# towards X (feelings, interest, demand) 	OUT: aff_i 	TAG: <POSTP<IRÁNT>>  # person marking with infixing  
+,  ellenére	POSTP  	# contrary to X 	TAG: <POSTP<ELLENÉRE>> 
+,  ellen		PERS_PRON  	# contrary to X 	TAG: <POSTP<ELLENÉRE>> 	OUT: pp_re pp_appendix 
+,  számára	POSTP  	# for X (recipient)  	TAG: <POSTP<SZÁMÁRA>> 
+,  szám		PERS_PRON	  	# for X (recipient)  	TAG: <POSTP<SZÁMÁRA>> 	OUT: non_low pp_re pp_appendix 
+,  részére	POSTP 	# for X 	TAG: <POSTP<RÉSZÉRE>> 
+,  rész		PERS_PRON 	# for X 	TAG: <POSTP<RÉSZÉRE>> 	OUT: pp_re pp_appendix 
+,  részérõl	POSTP 	# as concerns X 	TAG: <POSTP<RÉSZÉRÕL>> 
+,  rész		PERS_PRON 	# as concerns X 	TAG: <POSTP<RÉSZÉRÕL>> 	OUT: pp_ról pp_appendix 
+,  létére	POSTP 	# contrary to being X 	TAG: <POSTP<LÉTÉRE>> 
+,  lét	PERS_PRON 	# contrary to being X 	TAG: <POSTP<LÉTÉRE>> 	OUT: pp_re pp_appendix   ################################################# # postps not  allowing person/number inflection # # but still having demonstrative forms          # #################################################  # governing nominative  # still very much like case markers  # these can have inflected demostrative forms  
+,  közben	DEM_PRON POSTP  	# during X, in the course of X 	OUT: aff_i  	TAG: <POSTP<KÖZBEN>> 
+,  körül	DEM_PRON POSTP  	# around X 	OUT: aff_i  	TAG: <POSTP<KÖRÜL>> 
+,  körül	PERS_PRON 	# around X 	TAG: <POSTP<KÖRÜL>> 	USAGE: archaic 
+,  végett	DEM_PRON POSTP 	# because of X, for X (goal)  	# végetti? OUT: aff_i 	TAG: <POSTP<VÉGETT>> 
+,  végbõl	DEM_PRON POSTP 	# because of X, for X (goal) 	TAG: <POSTP<VÉGBÕL>> 	USAGE: archaic 
+,  végre 	DEM_PRON POSTP 	# because of X, for X (goal) 	TAG: <POSTP<VÉGRE>> 	USAGE: archaic 
+,  óta 	DEM_PRON POSTP 	# since X, for X (temporal) 	# ótai? OUT: aff_i 	TAG: <POSTP<ÓTA>> 
+,  fele 	DEM_PRON POSTP 	# towards X # variant of FELÉ 	# afele? 	TAG: <POSTP<FELÉ>>   ##################################################### # ones lacking demonstratives as well # they all lack derivational suffixes too  #######################################################   
+,  múlva	POSTP 	# in X (temporal)   	# múlvai? 	 	OUT: aff_i 	TAG: <POSTP<MÚLVA>>  
+,  folytán	POSTP 	# as a result of X 	# afolytán? 	TAG: <POSTP<FOLYTÁN>> 
+,  táján 	POSTP 	# around X (approximately) 	IF: postp  	TAG: <POSTP<TÁJÁN>> 
+,  mentén	POSTP 	# along X 	TAG: <POSTP<MENTÉN>> 
+,  gyanánt	POSTP 	# as X 	TAG: <POSTP<GYANÁNT>> 
+,  múltán	POSTP 	# after X (in the past) 	TAG: <POSTP<MÚLTÁN>> 
+,  múlván	POSTP 	# in X (temporal) 	TAG: <POSTP<MÚLVA>> 	USAGE: archaic 
+,  közepette	POSTP 	# during X  	TAG: <POSTP<KÖZEPETTE>> 
+,  közepett	POSTP 	# during X  	TAG: <POSTP<KÖZEPETTE>> 	USAGE: archaic 
+,  tájban	POSTP 	# circa X (temporal)   	TAG: <POSTP<TÁJBAN>>    # some with strange registers? # variants of MIATT 
+,  miá	POSTP 	# because of X 	TAG: <POSTP<MIATT>> 	USAGE: substandard 
+,  mián	POSTP 	# because of X 	TAG: <POSTP<MIATT>> 	USAGE: substandard  # postps with very restricted use # only with cardicals (3 times, see also suffix -szOr) 
+,  ízben	POSTP 	# X times 	TAG: <POSTP<ÍZBEN>>  # apparently only in the 'X óra hosszat' ?? (see also 'naphosszat') 
+,  hosszat	POSTP 	# for X hours 	TAG: <POSTP<HOSSZAT>>  ################################# # postpositions with other cases # have no pers. or demonstrative forms # some have i derivations (képest) #################################  # interestingly the ones used only as postpositions # mostly grammaticalized from adverbial participles  # or adj particple + adverbial suffix  
+,  virradóan	POSTP 	TAG: <POSTP<VIRRADÓAN>> 	GOV: NOUN<CAS<SBL>> 
+,  virradólag	POSTP 	TAG: <POSTP<VIRRADÓAN>> 	GOV: NOUN<CAS<SBL>> 
+,  vonatkozólag	POSTP 	# concerning X, as regards X 	TAG: <POSTP<VONATKOZÓLAG>> 	GOV: NOUN<CAS<SBL>> 
+,  nézvést	POSTP 	# concerning X, as for X 	TAG: <POSTP<NÉZVÉST>> 	GOV: NOUN<CAS<SBL>> 
+,  képest	POSTP 	# compared to X 	OUT: aff_i 	TAG: <POSTP<KÉPEST>> 	GOV: NOUN<CAS<ALL>> 
+,  fogva	POSTP 	# because of X 	TAG: <POSTP<FOGVA>> 	GOV: NOUN<CAS<ADE>>	GOV: NOUN<CAS<ABL>> 
+,  fogvást	POSTP 	# beginning from X 	TAG: <POSTP<FOGVA>> 	USAGE: archaic 	GOV: NOUN<CAS<ADE>>	GOV: NOUN<CAS<ABL>> 
+,  kifolyólag	POSTP 	# as a result of X 	TAG: <POSTP<KIFOLYÓLAG>> 	GOV: NOUN<CAS<ELA>> 
+,  folyólag	POSTP 	# as a result of X 	TAG: <POSTP<FOLYÓLAG>> 	GOV: NOUN<CAS<ELA>> 
+,  adódóan	POSTP 	# as a result of X 	TAG: <POSTP<ADÓDÓAN>> 	GOV: NOUN<CAS<ELA>> 
+,  nézve	POSTP 	# concerning X 	TAG: <POSTP<NÉZVE>> 	GOV: NOUN<CAS<SBL>> 
+,  nézvést	POSTP 	# concerning X 	TAG: <POSTP<NÉZVÉST>> 	GOV: NOUN<CAS<SBL>> 
+,  kezdve	POSTP 	# beginning from X 	TAG: <POSTP<KEZDVE>> 	GOV: NOUN<CAS<ABL>> 
+,  indíttatva	POSTP 	# motivated by X 	TAG: <POSTP<INDÍTTATVA>> 	GOV: NOUN<CAS<ABL>>  # with non-participial origin 
+,  ezelõtt	POSTP 	TAG: <POSTP<EZELÕTT>> # ago 	GOV: NOUN<CAS<INS>> 
+,  egyetemben	POSTP 	TAG: <POSTP<EGYETEMBEN>> # together with X 	GOV: NOUN<CAS<INS>> 
+,  egyidejûleg	POSTP 	TAG: <POSTP<EGYIDEJÛLEG>> # simultaneously with X 	GOV: NOUN<CAS<INS>> 
+,  egyidõben	POSTP 	TAG: <POSTP<EGYIDÕBEN>> # simultaneously with X 	GOV: NOUN<CAS<INS>> 
+,  túlmenõen	POSTP 	TAG: <POSTP<TÚLMENÕEN>> # over and above X 	GOV: NOUN<CAS<SUE>> 
+,  következõleg	POSTP 	TAG: <POSTP<KÖVETKEZÕLEG>>	# as a consequence of X 	GOV: NOUN<CAS<ELA>> 
+,  eredõen	POSTP 	TAG: <POSTP<EREDÕEN>>	# as a consequence of X 	GOV: NOUN<CAS<ELA>> 
+,  fakadóan	POSTP 	TAG: <POSTP<EREDÕEN>>	# as a consequence of X 	GOV: NOUN<CAS<ELA>> 
+,  fakadólag	POSTP 	TAG: <POSTP<EREDÕEN>>	# as a consequence of X 	GOV: NOUN<CAS<ELA>> 
+,  megfelelõen	POSTP 	TAG: <POSTP<MEGFELELÕEN>>	# according to /complying with X 	GOV: NOUN<CAS<DAT>> 
+,  eltérõen	POSTP 	TAG: <POSTP<ELTÉRÕEN>>	# different from X 	GOV: NOUN<CAS<ADE>> 
+,  illetõleg	POSTP 	TAG: <POSTP<ILLETÕLEG>>	# concerning X 	GOV: NOUN<CAS<ACC>> 
+,  illetõen	POSTP 	TAG: <POSTP<ILLETÕEN>>	# concerning X 	GOV: NOUN<CAS<ACC>> 
+,  függõen	POSTP 	TAG: <POSTP<FÜGGÕEN>>	# depending on X 	GOV: NOUN<CAS<ABL>> 
+,  függetlenül	POSTP 	TAG: <POSTP<FÜGGETLENÜL>>	# independing of X 	GOV: NOUN<CAS<ABL>> 
+,  követõen	POSTP 	TAG: <POSTP<KÖVETÕEN>>	# following X 	GOV: NOUN<CAS<ACC>> 
+,  megelõzõen	POSTP 	TAG: <POSTP<MEGELÕZÕEN>>	# preceeding X 	GOV: NOUN<CAS<ACC>> 
+,  köszönhetõen	POSTP 	TAG: <POSTP<KÖSZÖNHETÕEN>>	# thanks to X 	GOV: NOUN<CAS<DAT>> 
+,  bezárólag	POSTP 	TAG: <POSTP<BEZÁRÓLAG>> # up to X 	GOV: NOUN<CAS<INS>> 
+,  karöltve	POSTP 	TAG: <POSTP<KARÖLTVE>> # joining forces with X 	GOV: NOUN<CAS<INS>> 
+,  ellentétben	POSTP 	TAG: <POSTP<ELLENTÉTBEN>> # as opposed to X 	GOV: NOUN<CAS<INS>>  # also as preposition?  
+,  innen	POSTP 	OUT: aff_i 	TAG: <POSTP<INNEN>>	# not beyond X 	GOV: NOUN<CAS<SUE>> 
+,  innét	POSTP 	TAG: <POSTP<INNÉT>> 	USAGE: substandard 	GOV: NOUN<CAS<SUE>> 	#the same as innen  ###################################################### # originate in spatial adverbials # the following also allow use as preposition-like adverbs # however only with a very restricted (usually most direct spatial) meaning:  # some of these have -i adectival derivations  # through/via # thought over # hegyrõl le, a hídon át, majd balra # hegyrõl le, át a hídon, majd balra # via (calling at) # Amszterdamon át Edinburgh-ba # *át Amszterdamon Edinburgh-ba  
+,  át	POSTP 	TAG: <POSTP<ÁT>> 	GOV: NOUN<CAS<SUE>>  # 'through Peter'  # Péteren keresztül: know someone/pierce a needle through Peter # keresztül Péteren: basically run over Peter 
+,  keresztül	POSTP 	TAG: <POSTP<KERESZTÜL>>  	OUT: aff_i 	GOV: NOUN<CAS<SUE>>  # postp: outside, besides/apart from,  # pret: outside 
+,  kívül	POSTP 	TAG: <POSTP<KÍVÜL>> 	OUT: aff_i 	GOV: NOUN<CAS<SUE>> # postp: inside, within (temp) # prep: inside 
+,  belül	POSTP 	TAG: <POSTP<BELÜL>>  	OUT: aff_i 	GOV: NOUN<CAS<SUE>>  # facing (not really having non-spatial meanings) # facing, opposite; contrary to 
+,  szemben	POSTP 	TAG: <POSTP<SZEMBEN>> 	OUT: aff_i 	GOV: NOUN<CAS<INS>> 
+,  szembe	POSTP 	TAG: <POSTP<SZEMBE>> 	GOV: NOUN<CAS<INS>> 
+,  szemközt	POSTP 	TAG: <POSTP<SZEMKÖZT>> 	OUT: aff_i 	GOV: NOUN<CAS<INS>>  # abstract meanings are fine with prepositional use # over, over and above, apart from, beyond, besides 
+,  túl	POSTP 	TAG: <POSTP<TÚL>> 	OUT: aff_i 	GOV: NOUN<CAS<SUE>>  
+,  túlra	POSTP 	TAG: <POSTP<TÚLRA>> 	GOV: NOUN<CAS<SUE>>  # only abstract meanings, no distinction between prep/postp # with regards to  
+,  tekintettel	POSTP 	TAG: <POSTP<TEKINTETTEL>> 	GOV: NOUN<CAS<SBL>>  # together with 
+,  együtt	POSTP 	OUT: aff_i 	TAG: <POSTP<EGYÜTT>> 	GOV: NOUN<CAS<INS>>  # only abstract # as preposition only with dative  # as postposition also with nominative # in want of, lacking 
+,  híján	POSTP 	TAG: <POSTP<HIJÁN>> 	GOV: NOUN<CAS<DAT>>  # thanks to X 
+,  hála	POSTP 	TAG: <POSTP<HÁLA>> 	GOV: NOUN<CAS<DAT>>  # also with dative + definite article construction  
+,  jóvoltából	 POSTP TAG: <POSTP<JÓVOLTÁBÓL>>	# thanks to X, with the help of X 
+,  rovására	 POSTP TAG: <POSTP<ROVÁSÁRA>>	# ? 
+,  nevében	 POSTP TAG: <POSTP<NEVÉBEN>>	# on behalf of X, in the name of X  
+,  tájt		 POSTP TAG: <POSTP<TÁJT>>	# around X (temporal) 
+,  múltával	POSTP TAG: <POSTP<MÚLTÁVAL>>	# with X passed 
+,  révén		 POSTP TAG: <POSTP<RÉVÉN>>	# with the help of X 
+,  folyamán	 POSTP TAG: <POSTP<FOLYAMÁN>>	# in the course of X, during X 
+,  kapcsán	 POSTP TAG: <POSTP<KAPCSÁN>>	# in relation to X 
+,  alapján	 POSTP TAG: <POSTP<ALAPJÁN>>	# on the basis of X 
+,  esetén	 POSTP TAG: <POSTP<ESETÉN>>	# in case of X 
+,  láttán	 POSTP TAG: <POSTP<LÁTTÁN>>	# on seeing X 
+,  hallatán	 POSTP TAG: <POSTP<HALLATÁN>>	# after hearing X 
+,  hallatára	 POSTP TAG: <POSTP<HALLATÁRA>>	# after hearing X 
+,  nyomán	 POSTP TAG: <POSTP<NYOMÁN>>	# on the basis of X, after X 
+,  útján		 POSTP TAG: <POSTP<ÚTJÁN>>	# by way of X 
+,  során		 POSTP TAG: <POSTP<SORÁN>>	# in the course of X, during X 
+,  fejében	 POSTP TAG: <POSTP<FEJÉBEN>	# in exchange of X 
+,  hiányában	 POSTP TAG: <POSTP<HIÁNYÁBAN>	# in want of X 
+,  érdekében	 POSTP TAG: <POSTP<ÉRDEKÉBEN>>	# in the interest of X, for X 
+,  dacára	 POSTP TAG: <POSTP<DACÁRA>>	# despite X, in spite of X 
+,  tetejébe	 POSTP TAG: <POSTP<TETEJÉBE>>	# on top of X 
+,  elõrehaladtával	POSTP	TAG: <POSTP<ELÕREHALADTÁVAL>>	# as X progressed 
+,  beálltával		POSTP	TAG: <POSTP<BEÁLLTÁVAL>>	# as X ensued 
+,  végeztével	 POSTP TAG: <POSTP<VÉGEZTÉVEL>>	# after X 
+,  lejártával	 POSTP TAG: <POSTP<LEJÁRTÁVAL>>	# as X ran out 
+,  közeledtével	 POSTP TAG: <POSTP<KÖZELEDTÉVEL>>	# as X is approaching 
+,  következtében	 POSTP TAG: <POSTP<KÖVETKEZTÉBEN>>	# as a consequence of X 
+,  bekövetkeztével	 POSTP TAG: <POSTP<BEKÖVETKEZTÉVEL>>	# as X ensued 
+,  létrejöttével	 POSTP TAG: <POSTP<LÉTREJÖTTÉVEL>>	# as X came about 
+,  leteltével	 POSTP TAG: <POSTP<LETELTÉVEL>>	# as X ran out 
+,  elmúltával	 POSTP TAG: <POSTP<ELMÚLTÁVAL>>	# as X past 
+,  eredményeképpen	 POSTP TAG: <POSTP<EREDMÉNYEKÉPPEN>>	# as a result of X 
+,  erejéig	 POSTP TAG: <POSTP<EREJÉIG>>	# to the extent of X 
+,  elteltével	 POSTP TAG: <POSTP<ELTELTÉVEL>>	# after X (period of time) 
+,  ellenében	 POSTP TAG: <POSTP<ELLENÉBEN>>	# against X 
+,  ellenébe	 POSTP TAG: <POSTP<ELLENÉBE>>	# against X 
+,  alul	POSTP #????   ; 

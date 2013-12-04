@@ -260,14 +260,14 @@
             val.word    = val.word.toLowerCase();
             var stemmed = self.stemmer(val.word);
             if(self.wordInLexicon(val.word)){
-               syns[i]  = self.lexicon[val.word][0];
+               syns[i]  = self.lexicon[val.word]['pos'];
             }
             else if(!self.wordInLexicon(val.word) && self.wordInLexicon(stemmed)){
-               syns[i]  = self.lexicon[stemmed][0];
+               syns[i]  = self.lexicon[stemmed]['pos'];
             }
             //correct lemmatizing of unsatisfiable -> unsatisfy OR proxies -> proxy;
             else if(stemmed.lastIndexOf('i')==stemmed.length-1 && self.wordInLexicon(stemmed.substring(0,stemmed.lastIndexOf('i'))+'y')){
-               syns[i]  = self.lexicon[stemmed.substring(0,stemmed.lastIndexOf('i'))+'y'][0];
+               syns[i]  = self.lexicon[stemmed.substring(0,stemmed.lastIndexOf('i'))+'y']['pos'];
             }
             else{
                syns[i] = "NN";

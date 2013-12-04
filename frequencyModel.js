@@ -63,9 +63,9 @@
 			//analyse the entire results to get topWords;
 	    .wordFrequency(POSTagger.result.tags,POSTagger.result.tags.synSet,null/*we don't need another sortingModel*/)
 	    .get(function(i,val,a){
-	         if(POSTagger.POSTAGGER_LEXICON[val]=='DT'){
-	             return true;
-	         }
+           if(POSTagger.POSTAGGER_LEXICON[val] && POSTagger.POSTAGGER_LEXICON[val]['pos']=='DT'){
+              return true;
+           }
 	         return Flist.push(val);
 	    });
 	    Flist=enumerable(Flist).unredundant().obj;

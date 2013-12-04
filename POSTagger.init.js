@@ -160,11 +160,12 @@
          new POSTagger()
              .wordFrequency(result.tags,result.tags.synSet['NN'],POSTagger.frequencyModel)
              .get(function printKeywords_get(i,val,a){
-                                    if(POSTagger.POSTAGGER_LEXICON[val]=='DT'){
-                                       return true;
-                                    }
-                                    //if(val=='privacy')z.log({log:'keyw: '+keywords});
-                                    return keywords.push(val);
+                  //z.Log(val+" : "+JSON.stringify(POSTagger.POSTAGGER_LEXICON[val]));
+                  if(POSTagger.POSTAGGER_LEXICON[val] && POSTagger.POSTAGGER_LEXICON[val]['pos']=='DT'){
+                     return true;
+                  }
+                  //if(val=='privacy')z.log({log:'keyw: '+keywords});
+                  return keywords.push(val);
              });
          var ret=[];
          enumerable(keywords).unredundant().forEach(function(i,val,a){
